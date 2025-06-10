@@ -59,7 +59,109 @@ nav ul li a:hover {
     color: #588157;
 }
 
+/* Ukryj hamburger na dużych ekranach */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+  z-index: 1100; /* żeby było nad menu */
+}
 
+/* Hamburger: trzy paski */
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #588157; /* pasuje do logo */
+  border-radius: 2px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+  position: absolute;
+}
+
+.hamburger::before {
+  top: -8px;
+  left: 0;
+}
+
+.hamburger::after {
+  top: 8px;
+  left: 0;
+}
+
+@media (max-width: 768px) {
+  /* Kontener nawigacji - teraz wysokość zależy od treści i jest absolutny */
+  nav ul {
+    position: absolute;  /* nie fixed */
+    top: 60px;           /* pod headerem */
+    right: 20px;         /* trochę odstępu od prawej krawędzi */
+    background-color: #fff;
+    width: auto;         /* szerokość dopasowana do zawartości */
+    padding: 10px 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    max-width: 250px;
+    transform: translateY(-20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1050;
+  }
+
+  /* Pokazywanie menu */
+  nav ul.show {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  /* Opcje menu */
+  nav ul li {
+    margin-bottom: 15px;
+    padding-left: 0;
+  }
+
+  nav ul li:last-child {
+    margin-bottom: 0;
+  }
+
+  nav ul li a {
+    display: block;
+    font-weight: 600;
+    color: #333;
+  }
+
+  nav ul {
+    display: block !important; /* wymusza blokowy układ */
+  }
+
+  nav ul li {
+    display: block; /* każdy element na nowej linii */
+    margin-bottom: 15px;
+  }
+
+  /* Hamburger po prawej, blisko krawędzi */
+  .nav-toggle {
+    display: block;
+    margin-left: auto;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    z-index: 1100;
+  }
+}
 
 .hero {
     background-image: url('zdjecia/gabinet.png'); /* tutaj podaj swoją nazwę pliku */

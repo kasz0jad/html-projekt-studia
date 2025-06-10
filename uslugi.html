@@ -11,15 +11,19 @@
     <header>
         <div class="header-inner">
             <h1>Dentiva</h1>
+
+            <button class="nav-toggle" aria-label="Przełącz menu" aria-expanded="false">
+            <span class="hamburger"></span>
+            </button>
+
             <nav>
-                <ul>
-                    <li><a href="index.html">Strona Główna</a></li>
-                    <li><a href="umow_wizyte.html">Umów wizyte</a></li>
-                    <li><a href="uslugi.html">Usługi</a></li>
-                    <li><a href="zespol.html">Zespół</a></li>
-                    <li><a href="kontakt.html">Kontakt</a></li>
-                    
-                </ul>
+            <ul>
+                <li><a href="index.html">Strona Główna</a></li>
+                <li><a href="umow_wizyte.html">Umów wizyte</a></li>
+                <li><a href="uslugi.html">Usługi</a></li>
+                <li><a href="zespol.html">Zespół</a></li>
+                <li><a href="kontakt.html">Kontakt</a></li>
+            </ul>
             </nav>
         </div>
     </header>
@@ -160,5 +164,37 @@
         }, false);
     </script>
 
+   <script>
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('nav ul');
+
+        navToggle.addEventListener('click', () => {
+            const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', !isExpanded);
+            navMenu.classList.toggle('show');
+        });
+
+        document.addEventListener('click', (event) => {
+            const isClickInsideMenu = navMenu.contains(event.target);
+            const isClickOnToggle = navToggle.contains(event.target);
+            const isMenuOpen = navMenu.classList.contains('show');
+
+            if (isMenuOpen && !isClickInsideMenu && !isClickOnToggle) {
+                navMenu.classList.remove('show');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Dodajemy nasłuchiwanie scrolla, które zamknie menu jeśli jest otwarte na małych ekranach
+        window.addEventListener('scroll', () => {
+            const isMenuOpen = navMenu.classList.contains('show');
+            const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
+
+            if (isMenuOpen && viewportWidth < 768) {
+                navMenu.classList.remove('show');
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script>
 </body>
 </html>
