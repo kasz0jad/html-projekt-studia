@@ -60,7 +60,7 @@ nav ul li a:hover {
 }
 
 .hero {
-    background-image: url('/zdjecia/gabinet.png'); /* lub inny obrazek tła */
+    background-image: url('zdjecia/gabinet.png'); /* lub inny obrazek tła */
     background-size: cover;
     background-position: center;
     padding: 80px 20px;

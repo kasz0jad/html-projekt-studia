@@ -62,7 +62,7 @@ nav ul li a:hover {
 
 
 .hero {
-    background-image: url('/zdjecia/gabinet.png'); /* tutaj podaj swoją nazwę pliku */
+    background-image: url('zdjecia/gabinet.png'); /* tutaj podaj swoją nazwę pliku */
     background-size: cover;
     background-position: center;
     padding: 80px 20px; /* więcej paddingu, by tekst miał miejsce */
