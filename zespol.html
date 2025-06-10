@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zespół | Dentiva</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style_zespol.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <h1>Dentiva</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Strona Główna</a></li>
+          <li><a href="umow_wizyte.html">Umów wizyte</a></li>
+          <li><a href="uslugi.html">Usługi</a></li>
+          <li><a href="zespol.html">Zespół</a></li>
+          <li><a href="kontakt.html" class="active">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="zespol-section">
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Nasz zespół</h2>
+        <p class="podtytul">Poznaj specjalistów, którzy zadbają o Twój uśmiech z troską i profesjonalizmem.</p>
+      </div>
+    </section>
+
+    <section class="zespol">
+      <div class="zespol-grid">
+        <div class="czlonek-zespolu">
+          <img src="/zdjecia/Dr Hanna Maziarska.jpeg" alt="Dr Hanna Maziarska">
+          <h3>Dr Hanna Maziarska</h3>
+          <p>Specjalistka stomatologii zachowawczej z wieloletnim doświadczeniem. Znana z delikatnego podejścia do pacjentów i precyzyjnych zabiegów.</p>
+        </div>
+        <div class="czlonek-zespolu">
+          <img src="/zdjecia/Lek. Bartosz Koronkiewicz.jpeg" alt="Lek. Bartosz Koronkiewicz">
+          <h3>Lek. Bartosz Koronkiewicz</h3>
+          <p>Ekspert w leczeniu kanałowym z wykorzystaniem mikroskopu. Zawsze stawia na komfort i bezpieczeństwo pacjenta.</p>
+        </div>
+        <div class="czlonek-zespolu">
+          <img src="/zdjecia/Dr Elwira Zgryźliwa.jpeg" alt="Dr Elwira Zgryźliwa">
+          <h3>Dr Elwira Zgryźliwa</h3>
+          <p>Doktorka nauk medycznych, specjalizuje się w protetyce i estetyce uśmiechu. Ceni naturalność i estetykę.</p>
+        </div>
+        <div class="czlonek-zespolu">
+          <img src="/zdjecia/Lek. Janek Mleczak.jpeg" alt="Lek. Janek Mleczak">
+          <h3>Lek. Janek Mleczak</h3>
+          <p>Chirurg stomatologiczny, specjalizuje się w trudnych ekstrakcjach oraz leczeniu chirurgicznym jamy ustnej.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Autor projektu: Anna Maria Dolata</p>
+    <p>Numer albumu: 149600</p>
+  </footer>
+
+  <script>
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', function () {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+            // Scroll w dół — ukryj nagłówek
+            header.classList.add('hide');
+            } else {
+            // Scroll w górę — pokaż nagłówek
+            header.classList.remove('hide');
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }, false);
+    </script>
+
+</body>
+</html>

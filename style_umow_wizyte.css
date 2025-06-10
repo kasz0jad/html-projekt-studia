@@ -1,0 +1,192 @@
+/* style.css */
+body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #faf8f5;
+    color: #333;
+    line-height: 1.7;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  padding: 20px 0;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+
+header.hide {
+  transform: translateY(-100%);
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: #588157;
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #588157;
+}
+
+.hero {
+    background-image: url('/zdjecia/gabinet.png'); /* lub inny obrazek tła */
+    background-size: cover;
+    background-position: center;
+    padding: 80px 20px;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+
+.hero-content {
+    background-color: rgba(255, 255, 255, 0.6);
+    display: inline-block;
+    padding: 20px 40px;
+    border-radius: 15px;
+}
+
+.hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #3a5a40;
+}
+
+.hero p {
+    color: #222; /* ciemny kontrastujący tekst pod nagłówkiem */
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+    padding-top: 110px; /* aby uniknąć nakładania się na nagłówek */
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    color: #3a5a40;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+ul {
+    padding-left: 20px;
+    list-style: disc;
+    color: #555;
+}
+
+.formularz {
+    max-width: 700px;
+    margin: 60px auto;
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.formularz h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    color: #3a5a40;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.formularz p {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #555;
+}
+
+.formularz form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formularz label {
+    font-weight: 600;
+    color: #333;
+    font-size: 1em;
+}
+
+.formularz input,
+.formularz select {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 1em;
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f7f4;
+    color: #333;
+    transition: border-color 0.3s ease;
+}
+
+.formularz input:focus,
+.formularz select:focus {
+    border-color: #588157;
+    outline: none;
+}
+
+.formularz .button {
+    align-self: center;
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: #588157;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1em;
+}
+
+.formularz .button:hover {
+    background-color: #3a5a40;
+}
+
+footer {
+    background-color: #f0ede8;
+    color: #555;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    font-style: italic;
+    border-top: 1px solid #ccc;
+}
+

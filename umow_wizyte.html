@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Umów wizytę</title>
+    <link rel="stylesheet" href="style_umow_wizyte.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-inner">
+            <h1>Dentiva</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Strona Główna</a></li>
+                    <li><a href="umow_wizyte.html">Umów wizyte</a></li>
+                    <li><a href="uslugi.html">Usługi</a></li>
+                    <li><a href="zespol.html">Zespół</a></li>
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+   <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Umów wizytę</h2>
+                <p>Zapraszamy do skorzystania z formularza rezerwacji online.</p>
+            </div>
+        </section>
+
+        <section class="formularz">
+            <form action="#" method="post">
+                <label for="imie">Imię:</label>
+                <input type="text" id="imie" name="imie" required>
+
+                <label for="nazwisko">Nazwisko:</label>
+                <input type="text" id="nazwisko" name="nazwisko" required>
+
+                <label for="telefon">Numer telefonu:</label>
+                <input type="tel" id="telefon" name="telefon" required pattern="[0-9]{9}" placeholder="123456789">
+
+                <label for="data">Data wizyty:</label>
+                <input type="date" id="data" name="data" required>
+
+                <label for="godzina">Godzina wizyty:</label>
+                <select id="godzina" name="godzina" required>
+                    <option value="">Wybierz godzinę</option>
+                    <option value="08:00">08:00</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="13:00">13:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                </select>
+
+                <label for="lekarz">Wybierz lekarza:</label>
+                <select id="lekarz" name="lekarz" required>
+                    <option value="">Wybierz lekarza</option>
+                    <option value="dr-maziarska">Dr Hanna Maziarska</option>
+                    <option value="lek-koronkiewicz">Lek. Bartosz Koronkiewicz</option>
+                    <option value="dr-zgryzliwa">Dr Elwira Zgryźliwa</option>
+                    <option value="lek-mleczak">Lek. Janek Mleczak</option>
+                </select>
+
+                <button type="submit" class="button">Zarezerwuj wizytę</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>Autor projektu: Anna Maria Dolata</p>
+        <p>Numer albumu: 149600</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const dataInput = document.getElementById("data");
+
+            const dzisiaj = new Date();
+            const dzien = ("0" + dzisiaj.getDate()).slice(-2);
+            const miesiac = ("0" + (dzisiaj.getMonth() + 1)).slice(-2);
+            const rok = dzisiaj.getFullYear();
+
+            const dzisiajStr = `${rok}-${miesiac}-${dzien}`;
+            dataInput.min = dzisiajStr;
+
+            const miesiacNaprzod = new Date();
+            miesiacNaprzod.setMonth(miesiacNaprzod.getMonth() + 1);
+            const maxDzien = ("0" + miesiacNaprzod.getDate()).slice(-2);
+            const maxMiesiac = ("0" + (miesiacNaprzod.getMonth() + 1)).slice(-2);
+            const maxRok = miesiacNaprzod.getFullYear();
+            const maxStr = `${maxRok}-${maxMiesiac}-${maxDzien}`;
+            dataInput.max = maxStr;
+
+            dataInput.addEventListener("input", function () {
+                const wybranaData = new Date(this.value);
+                const dzienTygodnia = wybranaData.getDay(); // 0 = niedziela, 6 = sobota
+
+                if (dzienTygodnia === 0 || dzienTygodnia === 6) {
+                    alert("Gabinet nie przyjmuje wizyt w weekendy. Wybierz dzień roboczy (poniedziałek – piątek).");
+                    this.value = "";
+                }
+            });
+        });
+    </script>
+
+    <script>
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', function () {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+            // Scroll w dół — ukryj nagłówek
+            header.classList.add('hide');
+            } else {
+            // Scroll w górę — pokaż nagłówek
+            header.classList.remove('hide');
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }, false);
+    </script>
+
+</body>
+</html>

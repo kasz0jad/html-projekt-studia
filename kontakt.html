@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kontakt | Dentiva</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style_kontakt.css" />
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <h1>Dentiva</h1>
+      <nav>
+        <ul>
+          <li><a href="index.html">Strona Główna</a></li>
+          <li><a href="umow_wizyte.html">Umów wizyte</a></li>
+          <li><a href="uslugi.html">Usługi</a></li>
+          <li><a href="zespol.html">Zespół</a></li>
+          <li><a href="kontakt.html" class="active">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  
+
+  <main class="kontakt-section">
+    
+    <div class="hero">
+        <div class="hero-content">
+            <h2>Kontakt</h2>
+            <p class="podtytul">Skontaktuj się z nami — chętnie pomożemy i odpowiemy na wszystkie pytania.</p>
+        </div>
+    </div>
+    <section>
+      <div class="kontakt-info">
+        <p><strong>Adres:</strong> ul. Zdrowa 12, 00-123 Warszawa</p>
+        <p><strong>Telefon:</strong> +48 123 456 789</p>
+        <p><strong>Email:</strong> kontakt@dentiva.pl</p>
+        <p><strong>Godziny otwarcia:</strong> Pon–Pt: 8:00–18:00</p>
+      </div>
+    </section>
+
+    <section class="formularz-kontaktowy">
+      <h2 id="formularz">Formularz kontaktowy</h2>
+      <p id="podtytul_formularz">Masz pytania? Wypełnij formularz, a skontaktujemy się z Tobą jak najszybciej.</p>
+      <form action="#" method="post">
+        <label for="name">Imię i nazwisko</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Wiadomość</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Wyślij</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Autor projektu: Anna Maria Dolata</p>
+    <p>Numer albumu: 149600</p>
+  </footer>
+
+  <script>
+        let lastScrollTop = 0;
+        const header = document.querySelector('header');
+
+        window.addEventListener('scroll', function () {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+            // Scroll w dół — ukryj nagłówek
+            header.classList.add('hide');
+            } else {
+            // Scroll w górę — pokaż nagłówek
+            header.classList.remove('hide');
+            }
+
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+        }, false);
+    </script>
+
+</body>
+</html>
